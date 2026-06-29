@@ -173,9 +173,11 @@ The application prevents:
 - Empty Expense Name
   
 <img width="853" height="251" alt="image" src="https://github.com/user-attachments/assets/ae787602-abb7-40d0-99f8-823ae21cea95" />
+
 - Negative Expense Amount
 
 <img width="847" height="213" alt="image" src="https://github.com/user-attachments/assets/acac27ae-bb3c-4ad4-ba89-70fdf4212885" />
+
 - Invalid Number Input
   
 <img width="862" height="236" alt="image" src="https://github.com/user-attachments/assets/4e30facb-16c0-4880-9f8b-7ac012f0e5de" />
