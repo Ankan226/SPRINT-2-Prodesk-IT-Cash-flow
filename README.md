@@ -81,6 +81,8 @@ Cash-Flow/
 - Update salary anytime
 - Validation against invalid inputs
 
+<img width="1671" height="906" alt="image" src="https://github.com/user-attachments/assets/478d931a-0077-4a80-9a8f-a6b7b69d59e5" />
+
 ---
 
 ## Expense Management
