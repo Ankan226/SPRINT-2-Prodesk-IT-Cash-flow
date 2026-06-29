@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash-Flow — Salary & Expense Tracker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="logo">
+          <span class="logo-icon">₹</span>
+          <span class="logo-text">Cash<strong>Flow</strong></span>
+        </div>
+        <div class="header-currency">
+          <label for="currencySelect">Currency</label>
+          <select id="currencySelect">
+            <option value="INR">INR ₹</option>
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+            <option value="GBP">GBP £</option>
+          </select>
+        </div>
+      </div>
+      <p class="header-sub">Salary & Expense Tracker</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card form-card">
+      <h2 class="section-title">Set Your Salary</h2>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="salaryInput">Total Monthly Salary (<span id="currencyLabelSalary">₹</span>)</label>
+          <input type="number" id="salaryInput" placeholder="e.g. 50000" min="0" />
+        </div>
+        <button id="setSalaryBtn" class="btn btn-primary">Set Salary</button>
+      </div>
+      <p id="salaryError" class="error-msg hidden">⚠ Please enter a valid positive salary.</p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Total Salary</p>
+        <p class="stat-value" id="displaySalary">₹0.00</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Total Expenses</p>
+        <p class="stat-value danger" id="displayExpenses">₹0.00</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Remaining Balance</p>
+        <p class="stat-value success" id="displayBalance">₹0.00</p>
+      </div>
+    </section>
+
+    <div id="alertBanner" class="alert-banner hidden">
+      🚨 <strong>Warning:</strong> Your remaining balance is below 10% of your salary!
+    </div>
+
+    <section class="card form-card">
+      <h2 class="section-title">Add Expense</h2>
+      <div class="input-row triple">
+        <div class="input-group">
+          <label for="expenseNameInput">Expense Name</label>
+          <input type="text" id="expenseNameInput" placeholder="e.g. Rent" />
+        </div>
+        <div class="input-group">
+          <label for="expenseAmountInput">Amount (<span id="currencyLabelExp">₹</span>)</label>
+          <input type="number" id="expenseAmountInput" placeholder="e.g. 10000" min="0" />
+        </div>
+        <button id="addExpenseBtn" class="btn btn-secondary">+ Add</button>
+      </div>
+      <p id="expenseError" class="error-msg hidden">⚠ Please enter a valid expense name and positive amount.</p>
+    </section>
+
+    <div class="bottom-grid">
+
+      <section class="card">
+        <div class="list-header">
+          <h2 class="section-title">Expense Log</h2>
+        </div>
+        <p id="emptyState" class="empty-state">No expenses yet. Add one above ↑</p>
+        <ul id="expenseList" class="expense-list"></ul>
+        <button id="downloadBtn" class="btn btn-outline btn-full">⬇ Download PDF Report</button>
+      </section>
+
+      <section class="card chart-card">
+        <h2 class="section-title">Breakdown</h2>
+        <div class="chart-wrapper">
+          <canvas id="expenseChart"></canvas>
+          <p id="chartEmpty" class="empty-state">Chart will appear after adding expenses.</p>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Cash-Flow &copy; 2025 — Sprint 02 Deliverable</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
